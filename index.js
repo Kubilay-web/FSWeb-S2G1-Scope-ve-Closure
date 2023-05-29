@@ -54,6 +54,8 @@ function skor2() {
 }
 
 
+//
+
 /* Görev 2: takimSkoru() 
 Aşağıdaki takimSkoru() fonksiyonununda aşağıdakileri yapınız:
   1. Bir çeyrekte bir takımın ürettiği skoru rastgele(random) elde eden bir sonuc dönünüz(return)
@@ -64,9 +66,18 @@ Aşağıdaki takimSkoru() fonksiyonununda aşağıdakileri yapınız:
 Not: Bu fonskiyon, aşağıdaki diğer görevler için de bir callback fonksiyonu olarak da kullanılacak
 */
 
-function takimSkoru(/*Kodunuzu buraya yazınız*/){
-    /*Kodunuzu buraya yazınız*/
+function takimSkoru(){
+    const x = Math.ceil(Math.random() * (25-10)) + 10;
+    return x;
 }
+
+function takimSkoru2(){
+  const x = Math.ceil(Math.random() * (25-10)) + 10;
+  return x;
+}
+
+
+console.log(takimSkoru());
 
 
 
@@ -86,12 +97,28 @@ Aşağıdaki macSonucu() fonksiyonununda aşağıdakileri yapınız:
 }
 */ 
 
-function macSonucu(/*Kodunuzu buraya yazınız*/){
-  /*Kodunuzu buraya yazınız*/
+takimSkoru();
+
+function macSonucu(skor,Periyot){
+  let Ev = 0;
+  let Deplasman= 0;
+
+  let i = 0;
+  while (i < Periyot) {
+    Ev=Ev+skor();
+    Deplasman=Deplasman+skor();
+    i++;
+  }
+
+
+  return{
+   Home:Ev,
+   Away:Deplasman
 }
 
+}
 
-
+console.log("macSonucu", macSonucu(takimSkoru,4));
 
 
 
@@ -108,12 +135,18 @@ Aşağıdaki periyotSkoru() fonksiyonununda aşağıdakileri yapınız:
 }
   */
 
+takimSkoru();
 
-function periyotSkoru(/*Kodunuzu buraya yazınız*/) {
-  /*Kodunuzu buraya yazınız*/
-
+function periyotSkoru(sonuc) {
+    return{
+      ev:sonuc(),
+      konuk:sonuc()
+    };
 }
 
+console.log("periyotSkoru",periyotSkoru(takimSkoru));
+
+console.log("futbolperiyotSkoru",periyotSkoru(takimSkoru2));
 
 /* Zorlayıcı Görev 5: skorTabelasi() 
 Aşağıdaki skorTabelasi() fonksiyonunu kullanarak aşağıdakileri yapınız:
